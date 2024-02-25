@@ -1,0 +1,25 @@
+# .gitignore for Django projects
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+local_settings.py
+
+# Database
+*.sqlite3
+*.db
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+
+# Logs and backups
+*.log
+*.bak
+*.swp
+*.sql
