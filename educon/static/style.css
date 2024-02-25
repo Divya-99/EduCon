@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9; /* Set your desired background color */
+}
+
+.container {
+    text-align: center;
+    position: relative; /* Add relative positioning */
+}
+
+.find-course-box,
+.find-career-box {
+    padding: 20px 50px;
+    font-size: 16px;
+    background-color: #478ff4;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 120px;
+    display: inline-block;
+    text-align: center; /* Center the text within the div */
+    margin: 0 10px; /* Adjust the distance between the div blocks */
+}
+
+input {
+    padding: 15px; /* Increase padding for both top and bottom */
+    margin: 10px;
+    width: 400px; /* Increase the width as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Increase font size as needed */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    position: absolute; /* Add absolute positioning */
+    top: 100%; /* Position the suggestions below the input */
+    left: 0;
+    width: 100%; /* Make the suggestion list same width as the input */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #eee;
+}
+
+/* Styles for the search results table */
+#courseTableContainer {
+    margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; /* Adjust the width as needed */
+    margin: auto; /* Center the table on the screen */
+}
+
+table, th, td {
+    border: 1px solid lightgrey; /* Single-line border with light grey shade */
+}
+
+th, td {
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: left;
+}
+
+.clickable-content {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}
