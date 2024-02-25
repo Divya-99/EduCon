@@ -10,6 +10,8 @@ class Course(models.Model):
     course_name = models.CharField(max_length=45, null=True)
     description = models.CharField(max_length=450, null=True)
     course_id = models.AutoField(primary_key=True)
+    fee = models.CharField(max_length=10, null=True)
+    tenure = models.IntegerField(null=True)
  
     class Meta:
         constraints = [
