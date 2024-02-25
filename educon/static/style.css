@@ -32,6 +32,7 @@ body {
     display: inline-block;
     text-align: center; /* Center the text within the div */
     margin: 0 10px; /* Adjust the distance between the div blocks */
+    cursor: pointer;
 }
 
 input {
@@ -74,7 +75,8 @@ li:hover {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    border-spacing: 0;
+    width: 1000px;
     margin: auto;
     transform: translateY(45%);
 }
@@ -86,10 +88,29 @@ table, th, td {
 th, td {
     padding: 12px;
     text-align: left;
+    border: none;
+}
+
+tr {
+    background-color: #fff; /* Background color for each row */
+    border-radius: 8px; /* Adjust the border-radius as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box-shadow for a subtle effect */
 }
 
 .clickable-content {
     cursor: pointer;
     color: #007bff;
     text-decoration: underline;
+}
+
+#logoContainer {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Adjust the z-index as needed to ensure it's above other elements */
+}
+
+#logo {
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }

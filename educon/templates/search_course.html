@@ -10,6 +10,9 @@
     </script>
 </head>
 <body>
+    <div id="logoContainer">
+        <img src="../static/logo.svg" alt="My Logo" id="logo">
+    </div>
     <div class="container">
         <form id="searchForm" action="{% url 'list_courses' %}" method="GET">
             <input type="text" id="courseSearch" name="search" placeholder="Search for courses...">
