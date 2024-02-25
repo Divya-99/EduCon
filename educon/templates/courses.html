@@ -7,64 +7,29 @@
     <title>Courses</title>
 </head>
 <body>
-    <div id="courseTableContainer"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const searchTerm = urlParams.get('search');
-            const resultsString = urlParams.get('results');
-            const results = resultsString ? JSON.parse(decodeURIComponent(resultsString)) : [];
-
-            displayResults(searchTerm, results);
-        });
-
-        function displayResults(searchTerm, results) {
-            const courseTableContainer = document.getElementById('courseTableContainer');
-            const table = document.createElement('table');
-
-            // Add table headers
-            const headers = ['Course Name', 'Institution Name', 'Campus', 'Semesters', 'Fee'];
-            const headerRow = table.insertRow();
-            headers.forEach(headerText => {
-                const th = document.createElement('th');
-                th.textContent = headerText;
-                headerRow.appendChild(th);
-            });
-
-            // Add table rows with data
-            results.forEach(course => {
-                const row = table.insertRow();
-                const nameCell = createClickableCell(course.name);
-                const institutionCell = createClickableCell(course.institution);
-                const campusCell = createClickableCell(course.campus);
-                const semestersCell = createClickableCell(course.semesters);
-                const feeCell = createClickableCell(course.fee);
-
-                row.appendChild(nameCell);
-                row.appendChild(institutionCell);
-                row.appendChild(campusCell);
-                row.appendChild(semestersCell);
-                row.appendChild(feeCell);
-            });
-
-            courseTableContainer.appendChild(table);
-        }
-
-        function createClickableCell(content) {
-            const cell = document.createElement('td');
-            const clickableContent = document.createElement('div');
-            clickableContent.classList.add('clickable-content');
-            clickableContent.textContent = content;
-
-            clickableContent.addEventListener('click', function () {
-                // Handle the click event here (e.g., show a popup window)
-                alert('You clicked on: ' + content);
-            });
-
-            cell.appendChild(clickableContent);
-            return cell;
-        }
-    </script>
+    <div id="courseTableContainer">
+        <table id="courseTable">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Institution Name</th>
+                    <th>Campus</th>
+                    <th>Semesters</th>
+                    <th>Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td>{{ course.course_name }}</td>
+                        <td>{{ course.college_id.college_name }}</td>
+                        <td>{{ course.college_id.location }}</td>
+                        <td>{{ course.tenure }}</td>
+                        <td>{{ course.fee }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

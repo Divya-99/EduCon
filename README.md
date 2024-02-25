@@ -1,2 +1,2 @@
 # EduCon
-NSBE_Hack
+A Django web application project for NSBE Hackathon

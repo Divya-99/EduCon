@@ -1,17 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const courseSearchInput = document.getElementById('courseSearch');
+    const searchForm = document.getElementById('searchForm');
     const courseSuggestionsList = document.getElementById('courseSuggestions');
 
-    //Mock data for course suggestions (replace with data from your database)
-    // const courseSuggestionsData = [
-    //     'Advanced Web Development',
-    //     'Data Science Fundamentals',
-    //     'Graphic Design Basics',
-    //     'JavaScript for Beginners',
-    //     'Machine Learning with Python',
-    //     // Add more course suggestions as needed
-    // ];
     const courseSuggestionsData = courseNames;
+
     courseSearchInput.addEventListener('input', function () {
         const searchTerm = courseSearchInput.value.toLowerCase();
         const filteredSuggestions = courseSuggestionsData.filter(course =>
@@ -23,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     courseSearchInput.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-            redirectToCoursesPage(courseSearchInput.value.trim());
+            searchForm.submit();
         }
     });
 

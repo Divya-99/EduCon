@@ -7,12 +7,18 @@ def home(request):
 
 # Renders the course searching page
 def search_course(request):
-    courses = Course.objects.values_list('course_name', flat=True)
+    courses = list(Course.objects.values_list('course_name', flat=True))
     context = {'course_names': courses}
     return render(request, 'search_course.html', context)
 
 # Renders the course listing page
 def list_course(request):
-    courses = College.objects.select_related('course').all()
+    if request.method == 'GET':
+        search_query = request.GET.get('search', '')
+        courses = Course.objects.filter(course_name__icontains=search_query)
+    else:
+        courses = Course.objects.all()
+        
     context = {'courses': courses}
+
     return render(request, 'courses.html', context)
