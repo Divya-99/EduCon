@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displaySuggestions(suggestions) {
         courseSuggestionsList.innerHTML = '';
-
+    
+        const maxSuggestionsToShow = 5; // Adjust the maximum number of visible suggestions
+    
         suggestions.forEach(suggestion => {
             const listItem = document.createElement('li');
             listItem.textContent = suggestion;
@@ -30,10 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Redirect or perform any other action when a suggestion is clicked
                 alert('You clicked on: ' + suggestion);
             });
-
+    
             courseSuggestionsList.appendChild(listItem);
         });
-    }
+    
+        // Show or hide the scroller based on the number of suggestions
+        if (suggestions.length > maxSuggestionsToShow) {
+            courseSuggestionsList.style.overflowY = 'scroll';
+            courseSuggestionsList.style.maxHeight = '200px'; // Adjust the maximum height as needed
+        } else {
+            courseSuggestionsList.style.overflowY = 'hidden';
+            courseSuggestionsList.style.maxHeight = 'auto';
+        }
+    }    
 
     // Hide suggestions when clicking outside the input and suggestion list
     document.addEventListener('click', function (event) {
@@ -43,6 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function redirectToCoursesPage(searchTerm) {
-        window.location.href = `courses.html?search=${encodeURIComponent(searchTerm)}`;
+        window.location.href = `courses/?search=${encodeURIComponent(searchTerm)}`;
     }
 });
